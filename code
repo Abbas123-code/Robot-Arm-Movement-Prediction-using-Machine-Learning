@@ -1,0 +1,97 @@
+# Robot Arm Angle Prediction with Advanced Visualization and Explanation
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+from joblib import dump
+
+sns.set(style="whitegrid")
+
+# 1. Simulating Realistic Robot Arm Sensor Data
+np.random.seed(42)
+num_samples = 1000
+
+data = pd.DataFrame({
+    'torque': np.random.normal(50, 10, num_samples),           # Simulated torque values
+    'current': np.random.normal(5, 1.5, num_samples),          # Simulated motor current
+    'motor_temp': np.random.normal(75, 5, num_samples),        # Simulated motor temperature
+    'voltage': np.random.normal(24, 2, num_samples),           # Simulated input voltage
+    'prev_angle': np.random.uniform(0, 180, num_samples)       # Last joint angle (degrees)
+})
+
+# Target variable: next joint angle based on physical relationships + noise
+data['next_angle'] = (
+    data['prev_angle']
+    + 0.05 * data['torque']
+    - 0.1 * data['current']
+    + 0.02 * data['motor_temp']
+    - 0.05 * data['voltage']
+    + np.random.normal(0, 2, num_samples)  # Small random noise
+)
+
+# 2. Data Exploration (Optional Visualization in Jupyter)
+print("\nData Preview:")
+print(data.head())
+print("\nData Description:")
+print(data.describe())
+
+# 3. Splitting Data
+X = data.drop("next_angle", axis=1)
+y = data["next_angle"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 4. Training Model
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# 5. Prediction
+y_pred = model.predict(X_test)
+
+# 6. Evaluation
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print("\n\U0001F4CA Robot Arm Angle Prediction Results:")
+print(f"Mean Squared Error (MSE): {mse:.2f}")
+print(f"R² Score: {r2:.4f}")
+
+# 7. Echo of First 50 Predictions
+print("\n\U0001F4E2 First 50 Echoes - Predicted vs Actual:\n")
+for i in range(50):
+    print(f"Sample {i+1:>2}: Predicted = {y_pred[i]:6.2f}, Actual = {y_test.iloc[i]:6.2f}")
+
+# 8. Save the Model
+dump(model, "robot_arm_model.joblib")
+print("\n Model saved as 'robot_arm_model.joblib'")
+
+# 9. Save Plot of First 50 Predictions
+plt.figure(figsize=(10, 5))
+plt.plot(range(50), y_test.iloc[:50].values, label='Actual', marker='o')
+plt.plot(range(50), y_pred[:50], label='Predicted', marker='x')
+plt.title("First 50 Robot Arm Joint Angle Predictions")
+plt.xlabel("Sample")
+plt.ylabel("Joint Angle")
+plt.legend()
+plt.tight_layout()
+plt.savefig("robot_arm_echoes_plot.png")
+print(" Saved plot as 'robot_arm_echoes_plot.png'")
+
+# 10. Feature Importance
+importances = model.feature_importances_
+features = X.columns
+
+plt.figure(figsize=(8, 5))
+sns.barplot(x=importances, y=features)
+plt.title("Feature Importance")
+plt.tight_layout()
+plt.savefig("feature_importance.png")
+print(" Saved feature importance plot")
+
+
+# 11 Cross-Validation (Optional)
+scores = cross_val_score(model, X, y, cv=5, scoring='r2')
+print(f"\n🔁 Cross-Validation R² Scores: {scores}")
+print(f"Average CV R² Score: {scores.mean():.4f}")
