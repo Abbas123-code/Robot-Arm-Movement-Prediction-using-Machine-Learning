@@ -41,5 +41,6 @@ robot-arm-ml-prediction/ │
 
 #  Sample Result
 
-![Prediction Plot](https://dummyimage.com/600x300/cccccc/000000&text=Prediction+vs+Ground+Truth)  
+![Prediction Plot]![robot_arm_predictions](https://github.com/user-attachments/assets/07988a36-fa31-4cfe-911b-34fb0598ca2a)
+  
 > Example: Predicted vs Actual joint angle over time.
