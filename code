@@ -93,5 +93,5 @@ print(" Saved feature importance plot")
 
 # 11 Cross-Validation (Optional)
 scores = cross_val_score(model, X, y, cv=5, scoring='r2')
-print(f"\n🔁 Cross-Validation R² Scores: {scores}")
+print(f"\n Cross-Validation R² Scores: {scores}")
 print(f"Average CV R² Score: {scores.mean():.4f}")
