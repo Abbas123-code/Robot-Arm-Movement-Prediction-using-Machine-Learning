@@ -40,7 +40,10 @@ robot-arm-ml-prediction/ │
 5. **Evaluation**: Compare predicted vs actual movement
 
 #  Sample Result
+Random generated data [file:///home/mohammed-kumail-abbas/Pictures/Screenshots/Screenshot%20from%202025-05-01%2015-57-34.png]
+trainning the data[file:///home/mohammed-kumail-abbas/Pictures/Screenshots/Screenshot%20from%202025-05-01%2015-59-08.png]
+file:///home/mohammed-kumail-abbas/Pictures/Screenshots/Screenshot%20from%202025-05-01%2016-00-27.png
 
-![Prediction Plot]![robot_arm_predictions](https://github.com/user-attachments/assets/07988a36-fa31-4cfe-911b-34fb0598ca2a)
+[robot_arm_predictions](https://github.com/user-attachments/assets/07988a36-fa31-4cfe-911b-34fb0598ca2a)
   
 > Example: Predicted vs Actual joint angle over time.
