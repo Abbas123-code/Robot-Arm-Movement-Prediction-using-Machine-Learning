@@ -50,9 +50,9 @@ robot-arm-ml-prediction/ │
 
 
 ![Screenshot from 2025-05-01 15-59-08](https://github.com/user-attachments/assets/9ab15546-e861-461a-b00b-0d56993dbae5) !![Screenshot from 2025-05-01 16-00-27](https://github.com/user-attachments/assets/a923148b-a9a3-4e59-a5db-2e229110ef02)
+
 3) Result
 
-
-[robot_arm_predictions]!![robot_arm_predictions](https://github.com/user-attachments/assets/b5df9d3a-c223-47d5-bbf6-4243256d28e9)
+!![robot_arm_predictions](https://github.com/user-attachments/assets/b5df9d3a-c223-47d5-bbf6-4243256d28e9)
 
 > Example: Predicted vs Actual joint angle over time.
