@@ -40,9 +40,11 @@ robot-arm-ml-prediction/ │
 5. **Evaluation**: Compare predicted vs actual movement
 
 #  Sample Result
-Random generated data [file:///home/mohammed-kumail-abbas/Pictures/Screenshots/Screenshot%20from%202025-05-01%2015-57-34.png]
-trainning the data[file:///home/mohammed-kumail-abbas/Pictures/Screenshots/Screenshot%20from%202025-05-01%2015-59-08.png]
-file:///home/mohammed-kumail-abbas/Pictures/Screenshots/Screenshot%20from%202025-05-01%2016-00-27.png
+Random generated data ![Screenshot from 2025-05-01 15-57-34](https://github.com/user-attachments/assets/a0192450-6b66-48aa-a1ac-3f980bc51165)
+
+trainning the data ![Screenshot from 2025-05-01 15-59-08](https://github.com/user-attachments/assets/9ab15546-e861-461a-b00b-0d56993dbae5) ![Screenshot from 2025-05-01 15-59-08](https://github.com/user-attachments/assets/06b480e2-05a0-415e-a47e-7a193446ed5b)
+
+
 
 [robot_arm_predictions](https://github.com/user-attachments/assets/07988a36-fa31-4cfe-911b-34fb0598ca2a)
   
